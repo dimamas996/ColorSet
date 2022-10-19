@@ -4,4 +4,61 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
+  background-color: rgb(55, 55, 55);
 }
+
+#root {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "navigation main ads"
+    "footer footer footer";
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 3fr 8fr 2fr;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    grid-template-areas:
+      "header"
+      "navigation"
+      "main"
+      "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 2fr 1fr 5fr 1fr;
+  }
+
+  .hg__right {
+    grid-area: ads;
+    display: none;
+  }
+}
+
+.hg__header {
+  grid-area: header;
+}
+
+.hg__footer {
+  grid-area: footer;
+}
+
+.hg__main {
+  grid-area: main;
+}
+
+.hg__left {
+  grid-area: navigation;
+}
+
+.hg__right {
+  grid-area: ads;
+}
+
+/*
+      "header"
+      "navigation"
+      "main"
+      "ads"
+      "footer"; 
+ */
